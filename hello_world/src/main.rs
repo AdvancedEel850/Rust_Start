@@ -1,14 +1,27 @@
 use std::io;
 
 fn main() {
-    println!("Hello, world!");
-    let number: i32 = 24;
-    launch(number);
 
-    let x: i32 = 0;
-    let y :i32 = 5;
+    println!("Would you like to run the test? (y/n) ");
 
-    adding(x, y)
+    let mut testing :String = String::new();
+
+    io::stdin()
+        .read_line(&mut testing)
+        .expect("Failed to read line");
+
+    testing = testing.trim_end().to_string();
+
+    if testing == "y"{
+        println!("Hello, world!");
+        let number: i32 = 24;
+        launch(number);
+
+        let x: i32 = 0;
+        let y :i32 = 5;
+
+        adding(x, y)
+    }
 }
 
 fn launch(mut number: i32){
@@ -26,8 +39,8 @@ fn launch(mut number: i32){
 }
 
 fn adding(mut x : i32, y : i32){
-    println!("x, {x} y, {y}");
-    println!("Would you like to change your x? (y/n)");
+    println!("\nCurrent values:\nx, {x} y, {y}");
+    println!("\nWould you like to change your x? (y/n)");
 
     let mut guess = String::new();
 
@@ -40,7 +53,7 @@ fn adding(mut x : i32, y : i32){
     if guess.eq(&String::from("y")){
 
         let mut new_x : String = String::new();
-        println!("What number would you like x to be? ");
+        println!("\nWhat number would you like x to be? ");
 
         io::stdin()
         .read_line(&mut new_x)
@@ -51,5 +64,6 @@ fn adding(mut x : i32, y : i32){
         x = new_x;
     }
 
-    println!("{} + {} = {}", x, y, x+y)
+    println!("\n{} + {} = {}", x, y, x+y)
 }
+
