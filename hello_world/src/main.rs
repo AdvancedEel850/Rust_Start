@@ -1,4 +1,5 @@
 use std::io;
+use rand::Rng;
 
 fn main() {
 
@@ -21,6 +22,9 @@ fn main() {
         let y :i32 = 5;
 
         adding(x, y)
+    }
+    else{
+        game()
     }
 }
 
@@ -67,3 +71,52 @@ fn adding(mut x : i32, y : i32){
     println!("\n{} + {} = {}", x, y, x+y)
 }
 
+fn game(){
+
+    println!("Welcome to my guessing game!");
+
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    let mut guesses: i32 = 0;
+    
+    while guesses < 5{
+        
+        println!("What number would you like to guess: ");
+        let mut user_guess : String = String::new();
+
+        io::stdin()
+        .read_line(&mut user_guess)
+        .expect("Failed to read line");
+
+        let user_guess: i128 = user_guess.trim().trim_end().parse().expect("Please type a number!");
+
+        if user_guess == secret_number{
+            println!("You got it! The secret number was {}", secret_number);
+            break;
+        }
+        else{
+            println!("Not the right number!");
+            guesses += 1;
+        }
+    }
+
+    if guesses >= 5{
+        println!("Too bad, better luck next time!")
+    }
+
+    println!("Would you like to play again? (y/n) ");
+
+    let mut again:String = String::new();
+
+    io::stdin()
+        .read_line(&mut again)
+        .expect("Failed to read line");
+    
+    again = again.trim_end().to_string();
+
+    if again.eq(&String::from("y")){
+        game()
+    }
+    
+
+}
