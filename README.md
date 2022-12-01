@@ -1,10 +1,8 @@
 # Overview
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+I have developed a series of test that you are able to run. This is just to demonstrate the rust language, as prior to this project, I did not know anything about it. The other part of the program is a guessing game. It randomly has a number 1-100, and you have 5 tries to guess it.
 
-{Provide a description the software that you wrote to demonstrate the Rust language.}
-
-{Describe your purpose for writing this software.}
+I wrote this software to learn more about the rust language. How to receive inputs, use mutable and immutable variables, etc.
 
 {Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.  Focus should be on sharing what you learned about the language syntax.}
 
@@ -12,9 +10,9 @@
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+I used Visual Studio Code and the rust extension.
 
-{Describe the programming language that you used and any libraries.}
+I had to add the random library to the code, so I could generate a random number.
 
 # Useful Websites
 
